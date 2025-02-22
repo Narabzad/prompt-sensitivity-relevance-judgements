@@ -15,16 +15,16 @@ prompt-sensitivity-relevance-judgements/
 │   ├── pairwise/
 │   │   ├── pairs_20.txt                 # Selected passage pairs for DL 2020
 │   │   └── pairs_21.txt                 # Selected passage pairs for DL 2021
-│   └── judgments/
-│       ├── gpt-4o/
-│       │   ├── binary/                  # Binary relevance judgments by GPT-4o
-│       │   ├── graded/                  # Graded relevance judgments by GPT-4o
-│       │   └── pairwise/                # Pairwise relevance judgments by GPT-4o
-│       ├── mistral/
-│       │   ├── binary/                  # Binary relevance judgments by Mistral
-│       │   ├── graded/                  # Graded relevance judgments by Mistral
-│       │   └── pairwise/                # Pairwise relevance judgments by Mistral
-│       └── llama/
-│           ├── binary/                  # Binary relevance judgments by LLaMA
-│           ├── graded/                  # Graded relevance judgments by LLaMA
-│           └── pairwise/                # Pairwise relevance judgments by LLaMA```
+│── judgments/
+    ├── gpt-4o/
+    │   ├── binary/                  # Binary relevance judgments by GPT-4o
+    │   ├── graded/                  # Graded relevance judgments by GPT-4o
+    │   └── pairwise/                # Pairwise relevance judgments by GPT-4o 
+    ├── mistral/
+    |   │   ├── binary/                  # Binary relevance judgments by Mistral
+    |   │   ├── graded/                  # Graded relevance judgments by Mistral
+    |   │   └── pairwise/                # Pairwise relevance judgments by Mistral
+    └── llama/
+           ├── binary/                  # Binary relevance judgments by LLaMA
+           ├── graded/                  # Graded relevance judgments by LLaMA
+           └── pairwise/                # Pairwise relevance judgments by LLaMA```
