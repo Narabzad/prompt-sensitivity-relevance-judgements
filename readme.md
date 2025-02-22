@@ -45,22 +45,15 @@ Where:
 - `dl[year]` → The dataset year (`dl20` for 2020, `dl21` for 2021).
 - `[participant_id]` → The ID of the prompt used for the judgment.
 
-### Example Filenames:
+** Example Filenames:**
 - `mistral_graded_dl20_1.txt` → Graded relevance judgments by Mistral on DL 2020, using prompt #1.
 - `gpt-4o_binary_dl21_5.txt` → Binary judgments by GPT-4o on DL 2021, using prompt #5.
 
 ## Prompt Processing Details
 
-- Total Prompts: Initially, there were 32 prompts in `prompts.json`. 
-  - 2 were test prompts and excluded.
-  - 30 prompts were used in the experiments.
+- Total Prompts: Initially, there were 32 prompts in `prompts.json`.  2 were test prompts and excluded. 30 prompts were used in the experiments.
 - Final Processed Prompts: After filtering, only 12 prompts from humans and 12 prompts from LLMs were considered valid for generating judgments.
-
-## Missing Judgments Explanation
-
-- Some judgment files may contain fewer lines than others.
-- This happens because some LLMs failed to judge certain passages or returned incomplete results.
-- If a file has missing judgments, it means the LLM was unable to make a decision for those cases.
+- Some judgment files may contain fewer lines than others. This happens because some LLMs failed to judge certain passages or returned incomplete results.
 
 ## How to Use This Repository
 
@@ -68,4 +61,3 @@ Where:
 2. Check `prompts.json` → Defines the prompts used for relevance assessment.
 3. Analyze judgments in `data/judgments/` → Compare different LLM outputs.
 
-For any issues, feel free to submit a pull request or open an issue. 🚀
