@@ -35,7 +35,7 @@ Each **relevance judgment file** is named following this pattern: ```[model_name
 
 
 Where:
-- **`[model_name]`** → The LLM used for judgments (`gpt-4o`, `mistral`, `llama`).
+- `[model_name]` → The LLM used for judgments (`gpt-4o`, `mistral`, `llama`).
 - **`[judgment_type]`** → The type of relevance judgment:
   - `binary` → Binary (0/1) judgments.
   - `graded` → Graded relevance (0-3 scale).
