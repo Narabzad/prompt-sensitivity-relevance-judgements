@@ -1,6 +1,8 @@
 # Prompt Sensitivity in LLM-Based Relevance Judgments
 This repository contains data and scripts for analyzing prompt sensitivity in LLM-based relevance judgments.
+It collects 72 prompts from both human experts and LLMs, applying them to three different relevance judgement methods (binary, graded, and pairwise) using GPT-4o, Mistral, and LLaMA as judges. The study compares LLM judgments with TREC Deep Learning 2020 & 2021 labels, analyzing prompt robustness across models and LLMs as prompt generators. 
 
+[Prompt collection Guideline](https://drive.google.com/file/d/1mBn58tj2EZn3NvnW1s1Gn3gUjRotNvDq/view)
 ## Repository Structure
 ```
 prompt-sensitivity-relevance-judgements/
