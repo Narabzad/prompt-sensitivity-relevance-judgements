@@ -1,0 +1,492 @@
+{
+    "0": {
+        "participant_name": "human-0",
+        "binary": {
+            "system": "\"You are a highly experienced and accurate assessor TREC.\"",
+            "user": "Does the passage provide information that would be useful in answering the query? Just answer 1 for yes and 0 for no, without any explanation or extra verbiage.\nQuery:{query}\nPassage:{document}\n"
+        },
+        "graded": {
+            "system": "\"You are a highly experienced and accurate assessor TREC.\"",
+            "user": "For the given query, assign a 4-point TREC-style relevance grade to the passage. Just answer with a number indicating the relevance grade (0, 1, 2, or 3), without any explanation or extra verbiage.\nQuery:{query}\nPassage:{document}\n"
+        },
+        "pairwise": {
+            "system": "\"You are a highly experienced and accurate assessor TREC.\"",
+            "user": "Select the passage that best answers the query. Just answer 1 or 2, without any explanation or extra verbiage.  If both passages are similar, select the simplest and clearest.\nQuestion:\n{query}\nPassage 1:\n{documentA}\nPassage 2:\n{documentB}\n"
+        }
+    },
+    "1": {
+        "participant_name": "human-1",
+        "binary": {
+            "system": "You are an expert in the field of information retrieval and search.",
+            "user": "Given the query and the document provided below, assign a binary label where '1' means the document is relevant to the query and '0' means the document is irrelevant to the query. Only provide the label '1' or '0' and do not provide any further explanations. \n\n\nQuery: {query}\nPassage: {document}\nLabel:\n"
+        },
+        "graded": {
+            "system": "You are an expert in the field of information retrieval and search.",
+            "user": "Given the query and the document provided below, assign a graded relevance score ranging from '0' to '3' with the following definitions:\n\n\n[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\n[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information. \n[1] Related: The passage seems related to the query but does not answer it. \n[0] Irrelevant: The passage has nothing to do with the query.\n\n\n\n\nOnly provide the graded label id and do not provide any further explanations. Query: {query}\nPassage: {document}\nLabel:\n"
+        },
+        "pairwise": {
+            "system": "You are an expert in the field of information retrieval and search.",
+            "user": "Given the query and a pair of documents provided below, do a pair-wise comparison and determine which one is more relevant to the query. Only provide the name of the passage being more relevant as \u201cPassage A\u201d or \u201cPassage B\u201d and do not provide any further explanations.\"\n\n\nQuery: {query}\nPassage A: {documentA}\nPassage B: {documentB}\nAnswer:\n"
+        }
+    },
+    "2": {
+        "participant_name": "human-2",
+        "binary": {
+            "system": "Your task is to find whether the given passage is relevant to the given query or not. A passage is relevant if it satisfies the information need of the query. The output must be 0 or 1. 1 if the passage is relevant and 0 if the passage is irrelevant to the query.",
+            "user": "Determine whether this query is relevant to the passage.\nQuery: {query}\nPassage: {document}\n"
+        },
+        "graded": {
+            "system": "Your task is to determine how much the given passage is relevant to the given query. The output must be a number from 0 to 3. 0 if the passage is irrelevant to the query. 1 if the passage is related to the query but does not contain its answer. 2 if the passage is somehow relevant to the query and contains the answer but is not clear and direct. 3 if the passage perfectly answers the query.",
+            "user": "Determine how much the passage is related to the query.\nQuery: {query}\nPassage: {document}\n"
+        },
+        "pairwise": {
+            "system": "Your task is to find the passage which is more relevant to the given query among the given passages. The input contains a query and two passages and you must choose the passage that seems more relevant to the query.",
+            "user": "Determine which passage is more relevant to the query.\nQuery: {query}\nPassage A: {documentA}\nPassage B: {documentB}\n"
+        }
+    },
+    "3": {
+        "participant_name": "human-3",
+        "binary": {
+            "system": "Your task is to determine whether the given passage is relevant to the given query. Your judgment must be free of bias and not favor any part of the passage or query. Ensure your evaluation is fair, accurate, and correct. The answer must be strictly either 1 or 0:\\n\\n1 if the passage perfectly answers the query.\\n\\n0 if the passage is irrelevant to the query.",
+            "user": "Query: {query}\\nPassage: {document}"
+        },
+        "graded": {
+            "system": "Your task is to evaluate the relevance of the given passage to the provided query and assign a relevance score based on this evaluation. The score ranges from 0 to 3:\\n\\n0: The passage is not relevant to the query at all.\\n\\n1: The passage may be somewhat relevant to the query but is not directly relevant.\\n\\n2: The passage is completely relevant to the query but does not answer it thoroughly.\\n\\n3: The passage fully answers the query.\\n\\n\\nRespond with only a single number (0, 1, 2, or 3) as the relevance score. Ensure your evaluation is fair, unbiased, and accurate.",
+            "user": "Query: {query}\\nPassage: {document}"
+        },
+        "pairwise": {
+            "system": "Your task is to identify the passage most relevant to the given query. You will receive a query and two passages, titled \"Passage A\" and \"Passage B.\" Evaluate each passage impartially and fairly, based solely on how effectively it addresses the query. Output only the title of the most relevant passage (\"Passage A\" or \"Passage B\"), without any additional explanation or text.",
+            "user": "Query: {query}\\nPassage A: {documentA}\\nPassage B: {documentB}"
+        }
+    },
+    "4": {
+        "participant_name": "human-4",
+        "binary": {
+            "system": "When answering the questions, only answer with binary numbers. Answer 1 if the answer is yes and 0 otherwise.",
+            "user": "In the following set of a query and a passage, does the passage have the information that the query needs? Query: {query} Passage: {document}"
+        },
+        "graded": {
+            "system": "You are scoring the relevance of a passage to a query. The score should be only an integer number from 0 to 3 based on the following explanations for each relevance level: \\n [3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer. \\n [2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information. \\n [1] Related: The passage seems related to the query but does not answer it. \\n [0] Irrelevant: The passage has nothing to do with the query.",
+            "user": "Determine the relevance level of the following query and passage pair. Query: {query} Passage: {Document}"
+        },
+        "pairwise": {
+            "system": "You are given two choices of passages for a query. Based on the information needed for the query, you need to choose the more relevant passage. Only choose one option. Output the name of the passage as the answer.",
+            "user": "For the given query, Choose the passage that has more relevant information to answer the query. Query: {query} Passage A: {documentA} Passage B: {documentB}"
+        }
+    },
+    "5": {
+        "participant_name": "human-5",
+        "binary": {
+            "system": "You are a professional relevance judge. You are given a \u2018Query\u2019 and \u2018Passage\u2019 in json format and you need to determine if the passage is relevant to the query or not. Only return binary values of 1 in case of relevance and 0 if they are not relevant. Do not include any explanation.",
+            "user": "{'Query':{query}, 'Passage':{document}}"
+        },
+        "graded": {
+            "system": "You are a professional relevance judge. You are given a \u2018Query\u2019 and \u2018Passage\u2019 in json format and you need to grade the relevance of the passage to the query by returning a number from 0 to 3 which respectively mean \u2018Irrelevant: The passage has nothing to do with the query.\u2019, \u2018Related: The passage seems related to the query but does not answer it.\u2019, \u2018Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information.\u2019, and \u2018Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\u2019. Only return the number associated with its relevance with no extra text",
+            "user": "{'Query':{query}, 'Passage':{document}}"
+        },
+        "pairwise": {
+            "system": "You are a professional relevance judge. You are given a \u2018Query\u2019, \u2018Passage_A\u2019, and \u2018Passage_B\u2019 in json format and you need to determine which of the passages is more relevant to the given query. Only return either \u2018Passage A\u2019 or \u2018Passage B\u2019 with no extra text",
+            "user": "{'Query':{query}, 'Passage_A':{documentA}, 'Passage_B':{documentB}"
+        }
+    },
+    "6": {
+        "participant_name": "human-6",
+        "binary": {
+            "system": "You are a helpful assistant. You do not presume any fact. If you are not sure about the answer, you do not provide a quote.",
+            "user": "Given the query and document below, determine whether the document addresses the query\u2019s needed information or not. Do not presume any fact that is not explicitly mentioned in the document. Provide a quote to back up your decision and include a rationale to explain why the quote addresses the query:\\n\nQuery: {query} \\n\nDocument: {document}\n"
+        },
+        "graded": {
+            "system": "You are a helpful assistant. You do not presume any fact. If you are not sure about the answer, you do not provide a quote.",
+            "user": "Given the query and document below, determine whether the document addresses the query\u2019s needed information or not by giving it a score. Score values are defined as below: \\n\n\n\n[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\\n\n[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information. \\n\n[1] Related: The passage seems related to the query but does not answer it. \\n\n[0] Irrelevant: The passage has nothing to do with the query. \\n\n\n\nCheck if any part of the document addresses information needed in the query and use it as a quote. To back up your decision include a rationale to explain why the quote addresses the query. Then, based on the quote and rationale you found and the original document, choose one of the scores with respect to the query.\\n\nQuery: {query} \\n\nDocument: {document}\n"
+        },
+        "pairwise": {
+            "system": "You are a helpful assistant.",
+            "user": "Given the query and two documents below, determine which document is more relevant to the query and addresses the information needed more. You do not presume any fact and only use the information provided in each of the documents: \\n\nQuery: {query} \\n\nDocument 1: {documentA} \\n\nDocument 2: {documentB}\n"
+        }
+    },
+    "7": {
+        "participant_name": "human-7",
+        "binary": {
+            "system": "\"You are given one query, and one passage in the format of {query:\u201d\u201d, doc: \u201c\u201d}, and you are about to find whether the passage is relevant to the query (satisfies the information need in the query, or answers the question correctly), or not. Read the passage, and check whether it is a good choice to answer the query or not both semantically, and lexically. Return 1 if the passage is relevant to the query, and 0 otherwise.\"\n",
+            "user": "Read the query, and the passage carefully to find out whether the passage is relevant to the query or not. If it is relevant return 1, and if not return 0.\nQuery: {query} \\n\nDocument: {document}"
+        },
+        "graded": {
+            "system": "\"You are given one query, and one passage in the format of {query:\u201d\u201d, doc: \u201c\u201d}, and have to find out how much the passage is relevant to the query, which means how much it satisfies the information need in the query, or answers the question. The levels are defined as follows: [3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information. [1] Related: The passage seems related to the query but does not answer it. [0] Irrelevant: The passage has nothing to do with the query.\"",
+            "user": "\"Read the query, and the passage, and say how relevant the passage is to the query in the scale of 0 to 3. 0 is totally irrelevant, and 3 is perfectly relevant.\"\nQuery:{query}\nPassage:{document}"
+        },
+        "pairwise": {
+            "system": "\"You are given one query, and two documents in the format of {query:\u201d\u201d, doc1: \u201c\u201d, doc2:\u201d\u201d}. You have to choose which of the two documents is more rela\\evant to the query, which means answers the question in the query or satisfies the information need in the query. Consider the content of the two passages semantically, and lexically to decide which one is a better choice to answer the question in the query.\"\n",
+            "user": "\"read the query, and the two passages, and let me know which of the passages is more relevant to the query. \nQuery:{query} \n Passage_A:{documentA}  \n Passage_B:{documentB}\"\n"
+        }
+    },
+    "8": {
+        "participant_name": "human-8",
+        "binary": {
+            "system": "```xml \n<instruction>\nYou are a binary classifier system. Your task is to classify a given query and given document that is relevant or not. \n1. Your output is 0 and `1`. \n2. The `1` means the document provides the main information of the given query or the main data is needed to satisfy the query proposed in the document. \n3. Just return `0` and `1`\n</instruction>\n\n\n<example>\n<query>\ndo goldfish grow\n</query>\n<document>\nThe conditions goldfish are kept in plus their diet determine how large they will grow. I have seen goldfish grow ridiculously large in very small containers when their water was changed frequently. Goldfish will not grow if water conditions are poor. Fancy goldfish don\u00e2t grow as large as Common goldfish. A good size would be around 5 inches body length for most fancy varieties, 8 inches for Comets and 12 inches for Common Goldfish. These sizes are usually only attained by pond-grown fish.\n</document>\n\n\n<output>\n1\n</output>\n</example>\n```\n",
+            "user": "```xml\n<query>\n{query}\n</query>\n<document>\n{document}\n</document>\n```\n"
+        },
+        "graded": {
+            "system": "```xml\n<instruction>\nYou are a relevant level system. Your task is to grade a query and a document with these levels:\n[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\n[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information. \n[1] Related: The passage seems related to the query but does not answer it.\n[0] Irrelevant: The passage has nothing to do with the query.\nYour output is between 0 to 3. Based on the conditions above, 0 irrelevant passage and 3 is perfectly relevant\nJust return number between 0 to 3\n</instruction>\n\n\n<example 1>\n<query>\ndo goldfish grow\n</query>\n<passage>\nThe conditions goldfish are kept in plus their diet determine how large they will grow. I have seen goldfish grow ridiculously large in very small containers when their water was changed frequently. Goldfish will not grow if water conditions are poor. Fancy goldfish don\u00e2t grow as large as Common goldfish. A good size would be around 5 inches body length for most fancy varieties, 8 inches for Comets and 12 inches for Common Goldfish. These sizes are usually only attained by pond grown fish.\n</passage>\n<output>\n3\n</output>\n<example 2>\n<query>\ndo goldfish grow\n</query>\n<passage>\nActually, it is humane to keep a goldfish in a bowl, as long as the water is good, and as long as the fish can be relocated to a pond or large habitat when it becomes mature, as in too big the live in the bowl. It is not automatically cruel to keep one in a bowl.\n</pssage>\n<output>\n1\n</output>\n</example 2>\n</example>\n```\n",
+            "user": "```xml\n<query>\n{query}\n</query>\n<passage>\n{document}\n</passage>\n```\n"
+        },
+        "pairwise": {
+            "system": "```xml\n<instruction>\nYou are a relevance detector. Your task is to determine which passage is more relevant to the given query.\n1. The relevance means address the data of the query in the passage\n2. The more relevant passage consists of data for answering the query/question.\n3. There is no tie. Always one of them is more relevant.\n4. The output is `Passage A` or `Passage B` without more data.\n</instruction>\n\n\n<example>\n<query>\ndo goldfish grow\n</query>\n\n\n<passage A>\nThe conditions goldfish are kept in plus their diet determine how large they will grow. I have seen goldfish grow ridiculously large in very small containers when their water was changed frequently. Goldfish will not grow if water conditions are poor. Fancy goldfish don\u00e2t grow as large as Common goldfish. A good size would be around 5 inches body length for most fancy varieties, 8 inches for Comets and 12 inches for Common Goldfish. These sizes are usually only attained by pond grown fish\n</passage A>\n<passage B>\nActually, it is humane to keep a goldfish in a bowl, as long as the water is good, and as long as the fish can be relocated to a pond or large habitat when it becomes mature, as in too big the live in the bowl. It is not automatically cruel to keep one in a bowl.\n</passage B>\n<output>\nPassage A\n</output>\n</example>\n",
+            "user": "```xml\n<query>\n{query}\n</query>\n<passage A>\n{documentA}\n</passage A>\n<passage B>\n{documentB}\n</passage B>\n```\n"
+        }
+    },
+    "9": {
+        "participant_name": "human-9",
+        "binary": {
+            "system": "\"You are a binary relevance judgment agent whose duty is to determine if a query is relevant to the passage or not. Your answer should only be a single integer if the passage is a relevant answer with 1 if not relevant answer with 0 . You are not allowed to respond with anything else.",
+            "user": "\"Query: {query} \\n\" \n\"passage : {document} \\n\"\n\u201cDetermine if the query is relevant to the passage or not. Answer only with 1 if relevant and with 0 if not relevant.\u201d "
+        },
+        "graded": {
+            "system": "\"You are an relevance judgment agent that its duty is to determine to what extent a query is relevant to the passage. You should respond based on the relevance scores defined below. \" \n\n\n\"[0] Irrelevant: The passage has nothing to do with the query.\\n\"\n\"[1] Related: The passage seems related to the query but does not answer it.\\n\"\n\"[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, \" \"or hidden amongst extraneous information.\\n\"\n\"[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\\n\"\nYour answer should only be a single integer from this score list 0 , 1 , 2, 3. You are not allowed to respond with anything else.",
+            "user": "\"Query: {query} \\n\" \n\"passage : {document} \\n\"\nDetermine the relevance score of to what extent the query is related to the passage. Respond only with integer scores 0, 1, 2, 3.\n"
+        },
+        "pairwise": {
+            "system": " \"You are an relevance judgment agent that its duty is to determine whether a query is more related to which passage. Your task is to compare Passage A and Passage B with the main query and choose the one that fullfit the information need declared in the query. If passage A is more related respond with \u2018passage A\u2019 and if passage B is more related respond with \u2018passage B\u2019. You are not allowed to write anything except \u2018passage A\u2019 or \u2018passage B\u2019.  \"\n",
+            "user": "\"Query: {query} \\n\" \n\"passage A: {documentA} \\n\"\n\"passage B: {documentB} \\n\"\n\u201c Which passage is more relevant to the Query? Only answer with \u2018passage A\u2019 or \u2018passage B\u2019 \u201c\n"
+        }
+    },
+    "10": {
+        "participant_name": "human-10",
+        "binary": {
+            "system": "You are an expert in judging if a passage satisfies the information needed by a query. Answer 0 if the passage satisfies the information needed in a query, otherwise answer 1. Add nothing else in your response",
+            "user": "Query: {query}\npassage : {document}"
+        },
+        "graded": {
+            "system": "You are an expert in judging if a passage satisfies the information needed by a query. Answer with an integer from 0 to 3 representing how relevant the passage is to the query as follows:\n[3] represent  the passage  is perfectly relevant and contains the exact answer to the query\n[2] means the passage is highly relevant and has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information. \n[1]  means the passage seems related to the query but does not answer it.\n[0] means the passage is Irrelevant and has nothing to do with the query. \nAnswer only with a number and nothing else\",\n",
+            "user": "Query: {query}\npassage : {document}"
+        },
+        "pairwise": {
+            "system": "You are an expert in judging between passage A and Passage B, which one satisfies the information needed by a query the most. Answer by \u201cA\u201d or \u201cB\u201d and nothing else ",
+            "user": "\"Query: {query} \\n\" \n\"passage A: {documentA} \\n\"\n\"passage B: {documentB} \\n\"\n\n"
+        }
+    },
+    "11": {
+        "participant_name": "human-11",
+        "binary": {
+            "system": "You are an expert in the field of information retrieval. You will assist with a relevance judgment task. Specifically, given a query and document, you need to evaluate whether the document satisfies the information need behind the query. ",
+            "user": "Given the following query and document, output \u20181\u2019 if the document is relevant to the query and satisfies the information need behind the query. Otherwise, output \u20180\u2019. Only output \u20181\u2019 or \u20180\u2019 with no extra verbosity or reasoning.\\n\nQuery:{query}\\n\nDocument:{document}\n"
+        },
+        "graded": {
+            "system": "You are an expert in the field of information retrieval. You will assist with a relevance judgment task. Specifically, given a query and document, you need to evaluate to what extent the document satisfies the information need behind the query.",
+            "user": "Given the following query and document, assess the level of relevance of the document to the query based on the following criteria:\n[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\n[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information. \n[1] Related: The passage seems related to the query but does not answer it. \n[0] Irrelevant: The passage has nothing to do with the query.\n\n\nBased on the above mentioned criteria, output either \u20180\u2019, \u20181\u2019,\u20192\u2019, or \u20183\u2019 indicating to what extent the document satisfies the query. Do not add any extra verbosity or reasoning.\nQuery:{query}\\n\nDocument:{document}\n"
+        },
+        "pairwise": {
+            "system": "You are an expert in the field of information retrieval. You will assist with a relevance judgment task. Specifically, given a query and two documents, you need to evaluate which document better satisfies the query. Make sure you pay attention to both documents and do not be biased toward their order.",
+            "user": "Given the following query, Document A, and Document B, assess which document is more relevant to the query. \nIf both documents are relevant, choose the one that is better represented, more informative, or more concise. You cannot declare them equal; you must eventually choose one. \nOutput \u2018A\u2019 if Document A satisfies the query better than Document B. Otherwise, output \u2018B\u2019. \nDo not be biased toward the order of the documents. The output should be either 'A' or 'B', with no extra verbosity or reasoning. \nQuery:{query}\nDocument A:{documentA}\nDocument B:{documentB}\n"
+        }
+    },
+    "12": {
+        "participant_name": "human-12",
+        "binary": {
+            "system": "Please assess the Relevance of the provided Passage to the following Query. Please only output \u201c1\u201d (relevant) or \u201c0\u201d (irrelevant).",
+            "user": "Query: {query}\\nPassage:{document}\\nRelevance:"
+        },
+        "graded": {
+            "system": "Please assess the Relevance of the provided Passage to the following Query. Please only output \u201c3\u201d, \u201c2\u201d, \u201c1\u201d, or \u201c0\u201d.\n3: Perfectly relevant. The passage is dedicated to the query and contains the exact answer.\n2: Highly relevant. The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information. \n1: Related. The passage seems related to the query but does not answer it. \n0: Irrelevant.The passage has nothing to do with the query.\n",
+            "user": "Query: {query}\\nPassage:{document}\\nRelevance:"
+        },
+        "pairwise": {
+            "system": "Given a Query, Passage A and Passage B, please assess which Passage is more relevant to the Query. Please only output Passage A or Passage B.",
+            "user": "Query: {query}\\nPassage A: {documentA}\\nPassage B:\\n{documentB}"
+        }
+    },
+    "13": {
+        "participant_name": "human-13",
+        "binary": {
+            "system": "\"Consider yourself to be a human subject who has been recruited to participate in a gold standard dataset curation process. Your job is to carefully read an input query, and an associated document. Based on the query, you will need to first understand what information need the query is seeking to address. Once you understand the information need behind the query, you will need to then carefully read the document and see whether that document satisfies the information need of the given query. A document is relevant if it addresses the expressed information need of the query, not because it just happens to contain all the words in the query. If the document is considered to satisfy the information need of the query, then it is relevant. Otherwise it is considered to be irrelevant.\"",
+            "user": "\"Query: {query}\\n\n\u201cDocument: \u201d {document} \\n\n\u201cOutput 1 if you consider this document to be relevant for the query. Otherwise output 0\u201d "
+        },
+        "graded": {
+            "system": "\"Consider yourself to be a human subject who has been recruited to participate in a gold standard dataset curation process. Your job is to carefully read an input query, and an associated document. Based on the query, you will need to first understand what information need the query is seeking to address. Once you understand the information need behind the query, you will need to then carefully read the document and see whether that document satisfies the information need of the given query. A document is relevant if it addresses the expressed information need of the query, not because it just happens to contain all the words in the query.  You are tasked with determining not only the relevance of the document to the query but also its degree of relevance. If a document is written precisely and only to answer the information need behind the query, we consider it to be \u2018perfectly relevant\u2019. If the document mostly satisfies the information need but also includes other information or leaves room for improvement in the answer, we consider it to be \u2018highly relevant\u2019. If the document is conceptually relevant but does not address the information need, we considered it \u2018related\u2019. Otherwise the document is \u2018irrelevant\u2019\"",
+            "user": "\"Query: {query}\\n\n\u201cDocument: \u201d {document} \\n\n\u201cOutput 3 if you consider this document to be \u2018perfectly relevant\u2019, 2 if you consider it to be \u2018highly relevant\u2019, 1 if you consider it to be related for the query. Otherwise output 0\u201d \n"
+        },
+        "pairwise": {
+            "system": "\"Consider yourself to be a human subject who has been recruited to participate in a gold standard dataset curation process. Your job is to carefully read an input query, and an associated document. Based on the query, you will need to first understand what information need the query is seeking to address. Once you understand the information need behind the query, you will need to then carefully read the document and see whether that document satisfies the information need of the given query. A document is relevant if it addresses the expressed information need of the query, not because it just happens to contain all the words in the query.  You are tasked with assessing the relevance of two documents for a given input query and determining which one is more relevant for the input query.\u2019\"",
+            "user": "\"Query: \"+{query}+\u201d\\n\u201d+\n                \u201cDocument1: \u201d+{documentA}\u201d\\n\u201d+\n                \u201cDocument2: \u201d+{documentB}\u201d\\n\u201d+\n\u201cOutput \u2018Passage A\u2019 if you consider Document1 to be more relevant to the Query compared to Document2; otherwise output \u2018Passage B\u2019\u201d \n"
+        }
+    },
+    "14": {
+        "participant_name": "human-14",
+        "binary": {
+            "system": "Instruction: You are an expert assessor making relevance judgments. You will be given a query and a passage (a portion of a document). Your task is to determine whether the passage is relevant to the query or not.\nIf the passage is relevant to the query, answer \"0\". If not, answer \"1\".\nPlease remember that a passage is relevant to a query if it contains information that is helpful in satisfying the user\u2019s information need described by the query.\n",
+            "user": "Query: '{query}'\n Passage: '{document}.\n"
+        },
+        "graded": {
+            "system": "Instruction: You are an expert assessor making relevance judgments. You will be given a query and a passage (a portion of a document). Your task is to determine to what extent the passage is relevant to the query. Assess relevance based on the following scale:\n\n\n[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\n[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information.\n[1] Related: The passage seems related to the query but does not answer it.\n[0] Irrelevant: The passage has nothing to do with the query.\n",
+            "user": "Query: '{query}'\n Passage: '{document}'.\n\n\nEvaluate the relevance of this passage to the query on a scale of 0 to 3.\n"
+        },
+        "pairwise": {
+            "system": "Instruction: You are an expert assessor performing a pairwise relevance assessment. You will be given a query and two passages. Your task is to compare the two passages and determine which is more relevant to the given query.",
+            "user": "\"Query: '{query}'\n Passage A: '{documentA}'\n Passage B: '{documentB}'\n \nWhich passage is more relevant to the query?\n"
+        }
+    },
+    "15": {
+        "participant_name": "human-15",
+        "binary": {
+            "system": "You are a a helpful assistant .\\\nDoes the given passage answer the following question? Only output '1' or '0'.",
+            "user": "query:  {query}\\n \npassage: {document}'"
+        },
+        "graded": {
+            "system": "You are a search quality rater evaluating the relevance of passages. \\\n\tGiven a query and a passage, you must provide a score on an integer scale of 0 to 3 with the following meanings:\\n \\\n\t3 = highly relevant, The passage is dedicated to the query and contains the exact answer. \\n \\\n\t2 = relevant, The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information. \\n \\\n\t1 = related, The passage seems related to the query but does not answer it. \\n \\\n\t0 = Irrelevant, The passage has nothing to do with the query. \\n \\\n\tOnly output 0 , 1 ,2 or 3.",
+            "user": "query:  {query}\\n \npassage: {document}'"
+        },
+        "pairwise": {
+            "system": "You are a search quality rater evaluating the relevance of passages. \\\n\tGiven a query and two passages A and B, you must choose the passage that answers the question better.\\n \\\n\tIf both answerrs are similar, select the one with the least extraneous information. \\n\\\n\tIf both answers are still similar, select the one with the best formatting.\\n \\\n\tIf none of them answer the question, randomly select one. \\n \\\n\tOnly provide 'A' or 'B' as an output. ",
+            "user": "Query:  {query}?\\n \nDocument A: {documentA} \nDocument B: {documentB}"
+        }
+    },
+    "16": {
+        "participant_name": "LLM-GPT4",
+        "binary": {
+            "system": "\"You will be provided with a query and a corresponding passage. Your task is to evaluate the passage to determine if it directly answers or addresses the information need stated in the query. A relevant passage should offer substantial information directly related to the query.",
+            "user": "Query: {query}. Passage: {document}. Does this passage provide information that directly addresses the query? Respond with '1' for yes and '0' for no."
+        },
+        "graded": {
+            "system": "\"You are to assess the relevance of a provided passage to a given query. Use the scale where '3' indicates perfect relevance (the passage directly answers the query), '2' suggests high relevance (the passage contains the answer but it's not completely clear or direct), '1' implies the passage is related but doesn't answer the query, and '0' means the passage is irrelevant to the query.\"",
+            "user": "\"Query: {query}. Passage: {document}. On a scale of 0 to 3, how relevant is this passage to the query? Please respond with the integer score only."
+        },
+        "pairwise": {
+            "system": "You will be provided with two passages and a query. Your task is to evaluate which of the two passages is more relevant to the query. Make sure to choose one passage over the other, as ties are not allowed.",
+            "user": "Query: {query}. Passage A: {documentA}. Passage B: {documentB}. Which passage is more relevant to the query? Please respond by indicating 'Passage A' or 'Passage B'"
+        }
+    },
+    "17": {
+        "participant_name": "LLM-GPT4o",
+        "binary": {
+            "system": "\"You are an expert information retrieval system designed to evaluate the relevance of text passages to user queries. Your task is to analyze the provided passage and determine if it satisfies the user's information need expressed in the query. Respond strictly with '1' if the passage is relevant or '0' if it is not. No additional explanation is required.\"\n",
+            "user": "Query: {query}\\nPassage: {document}\\nIs the passage relevant to the query? Answer with '1' for Yes or '0' for No."
+        },
+        "graded": {
+            "system": " \"You are an expert information retrieval system designed to assess the relevance of text passages to user queries. Evaluate the provided passage and assign a relevance score based on the following scale:\\n[3] Perfectly relevant: The passage directly answers the query with precise information.\\n[2] Highly relevant: The passage addresses the query but may contain extra or slightly unclear information.\\n[1] Related: The passage is related to the query but does not answer it.\\n[0] Irrelevant: The passage is unrelated to the query.\\nRespond strictly with a single integer (0, 1, 2, or 3) without any explanation.\"",
+            "user": "\"Query: {query}\\nPassage: {document}\\nBased on the provided scale, what is the relevance score of the passage? Respond with a single number (0, 1, 2, or 3).\""
+        },
+        "pairwise": {
+            "system": " \"You are an expert information retrieval system designed to compare two text passages and determine which one is more relevant to a user query. You must choose the passage that better satisfies the user's information need. Respond strictly with 'A' if Passage A is more relevant or 'B' if Passage B is more relevant. Do not provide any explanation.\"\n",
+            "user": "\"Query: {query}\\nPassage A: {documentA}\\nPassage B: {documentB}\\nWhich passage is more relevant to the query? Answer with 'A' or 'B'.\"\n"
+        }
+    },
+    "18": {
+        "participant_name": "LLM-GPT4o Mini",
+        "binary": {
+            "system": "\"You are an AI trained to assess whether a given document is relevant to a specific query. Your task is to read the query and the document and determine whether the document provides relevant information to answer the query.\"\n",
+            "user": "\"Query: {query}\\nDocument: {document}\\n\\nPlease respond with '1' if the document is relevant to the query, and '0' if it is not relevant.\""
+        },
+        "graded": {
+            "system": "\"You are an AI trained to assess the relevance of a passage in relation to a query. You should assign a relevance score based on the following scale:\\n[3] Perfectly relevant: The passage directly answers the query.\\n[2] Highly relevant: The passage contains some answer to the query, but it may be unclear or mixed with extraneous information.\\n[1] Related: The passage is related to the query, but does not provide an answer.\\n[0] Irrelevant: The passage has no relation to the query.\"",
+            "user": "\"Query: {query}\\nDocument: {document}\\n\\nPlease rate the relevance of the document to the query on a scale of 0 to 3. Only provide the numerical score (no explanations).\"\n"
+        },
+        "pairwise": {
+            "system": "\"You are an AI trained to compare two passages and determine which one is more relevant to a specific query. Your task is to evaluate both passages and decide which one better addresses the query. You must choose one passage over the other; no ties are allowed.\"\n",
+            "user": "\"Query: {query}\\nPassage A: {documentA}\\nPassage B: {documentB}\\n\\nPlease indicate which passage is more relevant to the query by responding with 'Passage A' or 'Passage B'. No further explanation is required.\"\n"
+        }
+    },
+    "19": {
+        "participant_name": "LLM-GPTO1",
+        "binary": {
+            "system": "\"You are an AI assistant trained to judge the relevance of a passage to a user's query. \"\n                \"A passage is considered relevant if it clearly addresses or satisfies the user's information need. \"\n                \"Provide your response strictly as a single digit: '1' if the passage is relevant and '0' if it is not.\"\n",
+            "user": "\"Query: {query}\\n\\n\"\n\"Passage: {document}\\n\\n\"\n\"Based on the above query and passage, respond with either '1' if the passage is relevant or '0' if it is not.\""
+        },
+        "graded": {
+            "system": "\"You are an AI assistant trained to measure how relevant a passage is to a user's query. \"\n                \"Use the following integer scale for your judgment:\\n\\n\"\n                \"[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\\n\"\n                \"[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear or mixed with other info.\\n\"\n                \"[1] Related: The passage seems related to the query but does not answer it.\\n\"\n                \"[0] Irrelevant: The passage has nothing to do with the query.\\n\\n\"\n                \"Provide only one integer (0, 1, 2, or 3) indicating the level of relevance.\"",
+            "user": "\"Query: {query}\\n\\n\"\n\"Passage: {document}\\n\\n\"\n\"On a scale of 0 to 3, how relevant is the passage to the query?\""
+        },
+        "pairwise": {
+            "system": "\"You are an AI assistant trained to compare two passages (A and B) for their relevance to a specific query. \" \"You must decide which passage is more relevant to the query. There can be no ties. \" \"Provide only one clear choice: either 'Passage A' or 'Passage B'.\"",
+            "user": "\"Query: {query}\\n\\n\"\n\"Passage A: {documentA}\\n\\n\"\n\"Passage B: {documentB}\\n\\n\"\n\"Which passage is more relevant to the query? Please respond with either 'Passage A' or 'Passage B'.\""
+        }
+    },
+    "20": {
+        "participant_name": "LLM-GPTO1 Mini",
+        "binary": {
+            "system": "\"You are a highly capable assistant specialized in evaluating textual relevance. \"\n                \"Your task is to determine whether the provided passage directly addresses the user's query \"\n                \"by containing information that meets the information need expressed in the query. \"\n                \"Respond strictly with a single number: '1' if the passage is relevant or '0' if it is not.\"",
+            "user": "\"Query: \\\"{query}\\\"\\n\\n\"\n\"Passage: \\\"{document}\\\"\\n\\n\"\n\"Based on the query and the passage above, please decide if the passage is relevant to the query. \"\n\"Provide your answer as either '1' (relevant) or '0' (not relevant).\""
+        },
+        "graded": {
+            "system": "\"You are a highly skilled assistant specializing in evaluating the graded relevance of a passage \"\n                \"to a query. Your task is to score the passage on an integer scale from 0 to 3 where:\\n\"\n                \"[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\\n\"\n                \"[2] Highly relevant: The passage has some answer for the query, but the answer may be unclear or \"\n                \"hidden among extraneous information.\\n\"\n                \"[1] Related: The passage is related to the query but does not answer it.\\n\"\n                \"[0] Irrelevant: The passage has nothing to do with the query.\\n\"\n                \"Return only a single integer from 0 to 3 as your answer with no additional text.\"",
+            "user": "\"Query: \\\"{query}\\\"\\n\\n\"\n\"Passage: \\\"{document}\\\"\\n\\n\"\n\"Please evaluate the passage and return only the appropriate integer (0, 1, 2, or 3) based on the relevance of the passage to the query.\""
+        },
+        "pairwise": {
+            "system": "\"You are an expert assistant in evaluating textual relevance. Your task is to compare two passages and determine \" \"which one is more relevant to the given query. When you provide your answer, simply state 'Passage A' or 'Passage B' \" \"with no additional commentary or explanation. There should be no ties.\"",
+            "user": "\"Query: \\\"{query}\\\"\\n\\n\"\n\"Passage A: \\\"{documentA}\\\"\\n\\n\"\n\"Passage B: \\\"{documentB}\\\"\\n\\n\"\n\"Based on the query above, please select the passage that is more relevant. Respond with either 'Passage A' or 'Passage B' only.\""
+        }
+    },
+    "21": {
+        "participant_name": "LLM-Gemini 2",
+        "binary": {
+            "system": "\"You are an expert relevance assessor. Your task is to determine if a given passage is relevant to a specific query. A passage is considered relevant if it directly addresses the information need expressed in the query. Your response should be a single digit: '1' if the passage is relevant, and '0' if it is not. Provide no other explanation.\"",
+            "user": "\"Query: {query}\\nPassage: {document}\\nRelevance (1 or 0):\""
+        },
+        "graded": {
+            "system": "You are an expert relevance assessor. Your task is to score the relevance of a passage to a query using an integer scale from 0 to 3, where:\\n[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\\n[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information.\\n[1] Related: The passage seems related to the query but does not directly answer it.\\n[0] Irrelevant: The passage has nothing to do with the query.\\nProvide only the integer score (0, 1, 2, or 3) with no further explanation.",
+            "user": "\"Query: {query}\\nPassage: {document}\\nRelevance (0-3):\"\n"
+        },
+        "pairwise": {
+            "system": "\"You are an expert relevance assessor. Your task is to compare two passages (A and B) and determine which one is more relevant to a given query. You must choose one passage over the other; do not indicate a tie. Respond with only 'A' or 'B'.\"\n",
+            "user": "\"Query: {query}\\nPassage A: {documentA}\\nPassage B: {documentB}\\nMore Relevant Passage (A or B):\"\n"
+        }
+    },
+    "22": {
+        "participant_name": "LLM-Claude3.5",
+        "binary": {
+            "system": "You are a precise relevance assessment system. Your task is to determine if a passage satisfies a user's information need expressed in a query.",
+            "user": "Please assess if the following passage is relevant to the query.\n\nQuery: {query}\n\nPassage: {document}\n\nRespond only with a single digit:\n1 - if the passage contains information that satisfies the query's information need\n0 - if the passage does not contain information that satisfies the query's information need"
+        },
+        "graded": {
+            "system": "You are a precise relevance assessment system that evaluates how well a passage answers a query using a 4-point scale.  Evaluation Scale: 3 - Perfectly relevant: Passage directly answers the query with precise information 2 - Highly relevant: Passage contains an answer but may be unclear or include extra information 1 - Related: Passage discusses the topic but doesn't answer the query 0 - Irrelevant: Passage has no connection to the query  Guidelines: - Assess both explicit and implicit relevance - Focus solely on information content, not writing style - Consider the completeness and precision of the answer - Respond only with a single integer (0-3)",
+            "user": "Rate the relevance of this passage to the query using the 0-3 scale.  Query: {query}  Passage: {document}  Respond with only a single integer: 3 - If the passage provides a complete, precise answer 2 - If the passage contains an answer but it's unclear or mixed with other information 1 - If the passage is topically related but doesn't answer the query 0 - If the passage is completely irrelevant"
+        },
+        "pairwise": {
+            "system": "You are a precise relevance comparison system that determines which of two passages better answers a query.\n\nGuidelines:\n- Compare how directly each passage addresses the query's information need\n- Consider both explicit and implicit relevance\n- Evaluate completeness and specificity of information\n- Always choose one passage over the other (no ties allowed)\n- Focus on informational content, not writing style\n- Respond only with \"A\" or \"B\" to indicate the more relevant passage",
+            "user": "Compare these two passages and determine which one is more relevant to the query.\n\nQuery: {query}\n\nPassage A: {documentA}\n\nPassage B: {documentB}\n\nRespond with only a single letter:\nA - if Passage A is more relevant to the query\nB - if Passage B is more relevant to the query\n\nYou must choose one passage over the other. Ties are not allowed."
+        }
+    },
+    "23": {
+        "participant_name": "LLM-Llama3.2",
+        "binary": {
+            "system": "\"Is {query} relevant to {document}?\"\n",
+            "user": "\"Does this passage answer my question about goldfish growth?\"\n"
+        },
+        "graded": {
+            "system": "\"Please score the relevance of the passage to query '{query}' on a scale of 0 to 3, where 3 means the passage is perfectly relevant to the query and 0 means the passage is irrelevant.\"\n",
+            "user": "\"Is this passage about how much goldfish grow?\"\n"
+        },
+        "pairwise": {
+            "system": "\"Please compare the relevance of passages A and B to query '{query}' and choose which one is more relevant.\"\n",
+            "user": "\"I'd like the model to pick the passage that answers my question about goldfish growth.\"\n"
+        }
+    },
+    "24": {
+        "participant_name": "LLM-Phi-4",
+        "binary": {
+            "system": "\"You are tasked with determining the relevance of a passage to a specific query. A passage is considered relevant if it directly addresses the user's information need related to the query. Your response should be binary: '1' if the passage is relevant and '0' if it is not.\"",
+            "user": "\"Query: \\\"{query}\\\"\\n\\nPassage: \\\"{document}\\\"\\n\\nIs the passage relevant to the query?\"\n"
+        },
+        "graded": {
+            "system": "\"You are tasked with evaluating the relevance of a passage to a specific query using a graded scale from 0 to 3. Use the following criteria to assign a score:\\n\"\n            \"[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\\n\"\n            \"[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information.\\n\"\n            \"[1] Related: The passage seems related to the query but does not answer it.\\n\"\n            \"[0] Irrelevant: The passage has nothing to do with the query.\\n\"\n            \"Your response should be a single integer value between 0 and 3, with no further explanation.\"",
+            "user": "\"Query: \\\"{query}\\\"\\n\\nPassage: \\\"{document}\\\"\\n\\nRate the relevance of the passage to the query on a scale from 0 to 3, where 3 is perfectly relevant, 2 is highly relevant, 1 is related, and 0 is irrelevant.\"\n"
+        },
+        "pairwise": {
+            "system": "\"You are tasked with comparing two passages to determine which one is more relevant to a given query. Your goal is to choose the passage that better addresses the query, ensuring there are no ties. Consider the content, specificity, and directness of each passage in relation to the query.\"\n",
+            "user": "\"Query: \\\"{query}\\\"\\n\\nPassage A: \\\"{documentA}\\\"\\n\\nPassage B: \\\"{documentB}\\\"\\n\\nWhich passage is more relevant to the query? Indicate your choice by stating 'Passage A' or 'Passage B'.\"\n"
+        }
+    },
+    "25": {
+        "participant_name": "LLM-Mistral-large",
+        "binary": {
+            "system": "\"You are a relevance evaluation assistant. Your task is to determine if a given passage is relevant to a specific query. A passage is considered relevant if it satisfies the user's information need. Respond with '1' if the passage is relevant to the query, and '0' if it is not relevant.\"\n",
+            "user": "\"Query: {query}\\nPassage: {document}\"\n"
+        },
+        "graded": {
+            "system": "\"You are a relevance evaluation assistant. Your task is to score the relevance of a passage to a specific query using an integer scale from 0 to 3. \"\n                \"Here are the criteria:\\n\"\n                \"[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\\n\"\n                \"[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information.\\n\"\n                \"[1] Related: The passage seems related to the query but does not answer it.\\n\"\n                \"[0] Irrelevant: The passage has nothing to do with the query.\\n\"\n                \"Respond with a single integer value between 0 and 3, with no further explanation.\"",
+            "user": "\"Query: {query}\\nPassage: {document}\"\n"
+        },
+        "pairwise": {
+            "system": "\"You are a relevance evaluation assistant. Your task is to compare two passages and decide which one is more relevant to a given query. \"\n                \"You must choose one passage over the other, ensuring no ties. Respond with either 'Passage A' or 'Passage B' to indicate which passage you find more relevant. No further explanation is required.\"",
+            "user": "\"Query: {query}\\nPassage A: {documentA}\\nPassage B: {documentB}\"\n"
+        }
+    },
+    "26": {
+        "participant_name": "LLM-Deepseek-v3",
+        "binary": {
+            "system": "\"You are an expert at evaluating the relevance of a passage to a given query. Your task is to determine if the provided passage is relevant to the query. A passage is considered relevant if it directly addresses or satisfies the user's information need. Respond with '1' if the passage is relevant and '0' if it is not.\"\n",
+            "user": "\"Query: {query}\\nPassage: {document}\\nIs the passage relevant to the query? Respond with '1' for relevant or '0' for not relevant.\"\n"
+        },
+        "graded": {
+            "system": "\"You are an expert at evaluating the relevance of a passage to a given query. Your task is to score the relevance of the passage to the query on a scale from 0 to 3, where:\\n\"\n                       \"[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\\n\"\n                       \"[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear or hidden amongst extraneous information.\\n\"\n                       \"[1] Related: The passage seems related to the query but does not answer it.\\n\"\n                       \"[0] Irrelevant: The passage has nothing to do with the query.\\n\"\n                       \"Respond with a single integer between 0 and 3, with no further explanation.\"",
+            "user": "\"Query: {query}\\nPassage: {document}\\nScore the relevance of the passage to the query on a scale from 0 to 3.\""
+        },
+        "pairwise": {
+            "system": "\"You are an expert at comparing the relevance of two passages to a given query. Your task is to evaluate which of the two passages (A or B) is more relevant to the query. The passage that directly addresses the query or provides a clearer, more complete answer should be chosen. You must select one passage and cannot declare a tie. Respond with either 'Passage A' or 'Passage B' to indicate your choice, with no further explanation.\"\n",
+            "user": "\"Query: {query}\\nPassage A: {documentA}\\nPassage B: {documentB}\\nWhich passage is more relevant to the query? Respond with 'Passage A' or 'Passage B'.\"\n"
+        }
+    },
+    "27": {
+        "participant_name": "LLM-amazon-nova-pro-v1.0",
+        "binary": {
+            "system": "\"You are an expert in information retrieval tasked with determining the relevance of a given passage to a specific query. A passage is considered relevant if it directly addresses the information need expressed in the query.\"\n",
+            "user": "\"Determine if the following passage is relevant to the query: '{query}'. Passage: '{document}'. Output a binary value where '1' indicates the passage is relevant and '0' indicates it is not relevant.\"\n"
+        },
+        "graded": {
+            "system": "\"You are an expert in information retrieval tasked with scoring the relevance of a passage to a query on a scale from 0 to 3. The scale is defined as follows: [3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer. [2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information. [ The generated text has been blocked by our content filters.\n\n",
+            "user": ""
+        },
+        "pairwise": {
+            "system": "\"You are an expert in information retrieval tasked with comparing two passages to determine which one is more relevant to a given query. You must choose one passage over the other, ensuring no ties. Relevance is determined by how well the passage addresses the query.\"\n",
+            "user": "\"Compare the following two passages and decide which one is more relevant to the query: '{query}'. Passage A: '{documentA}'. Passage B: '{documentB}'. Output only the label of the more relevant passage ('A' or 'B').\"\n"
+        }
+    },
+    "28": {
+        "participant_name": "LLM-Gemma-2-9b",
+        "binary": {
+            "system": "\"Determine if the following document is relevant to the given query.  A document is relevant if it satisfies the user's information need.  Answer with 1 if relevant, 0 if not relevant.\"",
+            "user": "\"Query: {query}\\nDocument: {document}\\n\""
+        },
+        "graded": {
+            "system": "\"Rate the relevance of the following document to the query on a scale of 0 to 3, where:\\n0: Irrelevant\\n1: Related\\n2: Highly Relevant\\n3: Perfectly Relevant\"",
+            "user": "\"Query: {query}\\nDocument: {document}\\n\""
+        },
+        "pairwise": {
+            "system": "\"Compare the relevance of the following documents to the given query and choose the document that is more relevant. Answer with 'A' for the first document or 'B' for the second document.\"\n",
+            "user": "\"Query: {query}\\nDocument A: {documentA}\\nDocument B: {documentB}\\n\"\n"
+        }
+    },
+    "29": {
+        "participant_name": "LLM-Grok-2",
+        "binary": {
+            "system": "\"You are an expert in information retrieval tasked with evaluating the relevance of text passages to user queries. Your assessment should be binary: 1 for relevant, where the passage directly or indirectly satisfies the information need of the query, and 0 for not relevant, where it does not address the query's intent or provides unrelated information.\"\n",
+            "user": "\"Evaluate if the following passage is relevant to the query '{query}'. \\n\\nPassage: {document}\\n\\nRespond with only '1' if the passage is relevant to the query, or '0' if it is not.\"\n"
+        },
+        "graded": {
+            "system": "\"You are an information relevance evaluator. Your task is to assess how well a passage answers a given query using a scale from 0 to 3 where: \\n[3] Perfectly relevant - The passage directly and comprehensively answers the query. \\n[2] Highly relevant - The passage provides useful information but may not fully or directly answer the query. \\n[1] Related - The passage mentions concepts related to the query but does not provide an answer. \\n[0] Irrelevant - The passage has no relation to the query.\"\n",
+            "user": "\"Assess the relevance of the following passage to the query '{query}': \\n\\nPassage: {document}\\n\\nProvide only a single integer from 0 to 3 based on the relevance.\"\n"
+        },
+        "pairwise": {
+            "system": "\"You are tasked with comparing the relevance of two passages to a specific query. Your evaluation must determine which passage more directly and comprehensively addresses the user's query. Ties are not allowed; you must choose one passage as being more relevant than the other.\"",
+            "user": "\"For the query '{query}', compare Passage A: \\n\\n{documentA}\\n\\nWith Passage B: \\n\\n{documentB}\\n\\nIndicate which passage is more relevant by responding only with 'A' or 'B'.\"\n"
+        }
+    },
+    "30": {
+        "participant_name": "LLM-Jamba-1.5",
+        "binary": {
+            "system": "\"Your task is to evaluate the relevance of a given passage to a specific query. A passage is considered relevant if it provides information that satisfies the user's information need as expressed in the query.\"\n",
+            "user": "\"Is the following passage relevant to the query '{query}'? {document}\"\n"
+        },
+        "graded": {
+            "system": "\"Your task is to evaluate the relevance of a given passage to a specific query on a scale from 0 to 3, where:\n  [3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\n  [2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information.\n  [1] Related: The passage seems related to the query but does not answer it.\n  [0] Irrelevant: The passage has nothing to do with the query.\"",
+            "user": "\"Please score the relevance of the following passage to the query '{query}' on a scale from 0 to 3: {document}\"\n"
+        },
+        "pairwise": {
+            "system": "\"Your task is to compare two passages and determine which one is more relevant to a given query. You must choose one passage over the other, ensuring no ties.\"\n",
+            "user": "\"Which passage is more relevant to the query '{query}'? Passage A: {documentA} OR Passage B: {documentB}\"\n"
+        }
+    },
+    "31": {
+        "participant_name": "LLM-Athene-v2",
+        "binary": {
+            "system": "\"You are an expert in evaluating the relevance of text passages to specific queries. Your task is to determine if a given passage directly addresses the information need expressed in the query. Focus on whether the passage provides useful, pertinent information that would satisfy the user's query.\"\n",
+            "user": "\"Query: \\\"{query}\\\"\\nPassage: \\\"{document}\\\"\\nIs the passage relevant to the query? Respond with '1' if it is relevant, or '0' if it is not relevant. A passage is considered relevant if it provides information that directly addresses or helps to answer the query.\"\n"
+        },
+        "graded": {
+            "system": "\"You are an expert in evaluating the relevance of text passages to specific queries. Your task is to score the relevance of a passage to a query using an integer scale from 0 to 3, based on the following criteria:\\n\"\n                       \"[3] Perfectly relevant: The passage is dedicated to the query and contains the exact answer.\\n\"\n                       \"[2] Highly relevant: The passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information.\\n\"\n                       \"[1] Related: The passage seems related to the query but does not answer it.\\n\"\n                       \"[0] Irrelevant: The passage has nothing to do with the query.\\n\"\n                       \"Focus on how well the passage addresses the information need expressed in the query.\"",
+            "user": "\"Query: \\\"{query}\\\"\\nPassage: \\\"{document}\\\"\\nScore the relevance of the passage to the query using the scale from 0 to 3. Provide only the integer score as your response, with no additional text.\"\n"
+        },
+        "pairwise": {
+            "system": "\"You are an expert in evaluating the relevance of text passages to specific queries. Your task is to compare two passages and determine which one is more relevant to the given query. If both passages are relevant, choose the one that better addresses the user's information need. There should be no ties; always choose one passage over the other.\"\n",
+            "user": "\"Query: \\\"{query}\\\"\\nPassage A: \\\"{documentA}\\\"\\nPassage B: \\\"{documentB}\\\"\\nWhich passage is more relevant to the query? Respond with 'Passage A' if Passage A is more relevant, or 'Passage B' if Passage B is more relevant.\"\n"
+        }
+    },
+        "32": {
+            "participant_name": "umbrela",
+            "graded": {
+                "system": "You are a helpful assistant.",
+                "user": "Given a query and a passage, you must provide a score on an integer scale of 0 to 3 with the following meanings:\n0 = represent that the passage has nothing to do with the query,\n1 = represents that the passage seems related to the query but does not answer it,\n2 = represents that the passage has some answer for the query, but the answer may be a bit unclear, or hidden amongst extraneous information, and\n3 = represents that the passage is dedicated to the query and contains the exact answer.\n\nImportant Instruction: Assign category 1 if the passage is somewhat related to the topic but not completely, category 2 if the passage presents something very important related to the entire topic but also has some extra information, and category 3 if the passage only and entirely refers to the topic. If none of the above satisfies, give it category 0.\n\nQuery: {query}\nPassage: {document}\n\nSplit this problem into steps:\n1. Consider the underlying intent of the search.\n2. Measure how well the content matches a likely intent of the query (M).\n3. Measure how trustworthy the passage is (T).\n4. Consider the aspects above and the relative importance of each, and decide on a final score (O). Final score must be an integer value only.\n\nDo not provide any code in the result. Provide each score in the format of: ##final score: score without providing any reasoning."
+            },
+            "binary": {
+                "system":"You are a helpful assistant.",
+                "user": "\"Query: \\\"{query}\\\"\\nPassage: \\\"{document}\\\"\\nScore the relevance of the passage to the query using the scale from 0 to 3. Provide only the integer score as your response, with no additional text.\"\n"
+            }
+        }}
