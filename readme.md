@@ -3,7 +3,7 @@ This repository contains data and scripts for analyzing prompt sensitivity in LL
 It collects 72 prompts from both human experts and LLMs, applying them to three different relevance judgement methods (binary, graded, and pairwise) using GPT-4o, Mistral, and LLaMA as judges. The study compares LLM judgments with TREC Deep Learning 2020 & 2021 labels, analyzing prompt robustness across models and LLMs as prompt generators. 
 
 [Prompt collection Guideline](https://drive.google.com/file/d/1mBn58tj2EZn3NvnW1s1Gn3gUjRotNvDq/view)
-## Repository Structure
+## 📂 Repository Structure
 ```
 prompt-sensitivity-relevance-judgements/
 ├── prompts.json             # The prompts used for LLM-based relevance judgment
@@ -18,18 +18,22 @@ prompt-sensitivity-relevance-judgements/
 │   │   ├── pairs_20.txt                 # Selected passage pairs for DL 2020
 │   │   └── pairs_21.txt                 # Selected passage pairs for DL 2021
 │── judgments/
-    ├── gpt-4o/
-    │   ├── binary/                  # Binary relevance judgments by GPT-4o
-    │   ├── graded/                  # Graded relevance judgments by GPT-4o
-    │   └── pairwise/                # Pairwise relevance judgments by GPT-4o 
-    ├── mistral/
-    |   │   ├── binary/                  # Binary relevance judgments by Mistral
-    |   │   ├── graded/                  # Graded relevance judgments by Mistral
-    |   │   └── pairwise/                # Pairwise relevance judgments by Mistral
-    └── llama/
-           ├── binary/                  # Binary relevance judgments by LLaMA
-           ├── graded/                  # Graded relevance judgments by LLaMA
-           └── pairwise/                # Pairwise relevance judgments by LLaMA
+|   ├── gpt-4o/
+|   │   ├── binary/                  # Binary relevance judgments by GPT-4o
+|   │   ├── graded/                  # Graded relevance judgments by GPT-4o
+|   │   └── pairwise/                # Pairwise relevance judgments by GPT-4o 
+|   ├── mistral/
+|   |   │   ├── binary/                  # Binary relevance judgments by Mistral
+|   |   │   ├── graded/                  # Graded relevance judgments by Mistral
+|   |   │   └── pairwise/                # Pairwise relevance judgments by Mistral
+|   └── llama/
+|           ├── binary/                  # Binary relevance judgments by LLaMA
+|           ├── graded/                  # Graded relevance judgments by LLaMA
+|           └── pairwise/                # Pairwise relevance judgments by LLaMA
+└── src/                     # Scripts for running LLM-based judgments
+     ├── pairwise_run.py # Runs pairwise judgments
+     ├── binary_run.py # Runs binary judgments
+     └── graded_run.py # Runs graded judgments 
 ```
 
 
@@ -57,9 +61,13 @@ Where:
 - Final Processed Prompts: After filtering, only 12 prompts from humans and 12 prompts from LLMs were considered valid for generating judgments.
 - Some judgment files may contain fewer lines than others. This happens because some LLMs failed to judge certain passages or returned incomplete results.
 
-## How to Use This Repository
+##  Running the Judgements with Ollama
 
-1. Explore `data/` → Contains queries, human labels, and LLM judgments.
-2. Check `prompts.json` → Defines the prompts used for relevance assessment.
-3. Analyze judgments in `data/judgments/` → Compare different LLM outputs.
+You can run the scripts inside the `src/` folder to generate relevance judgments for different LLMs.
 
+```
+python src/binary_run.py --year [20 or 21] --model [llama3.2 or mistral]
+python src/pairwise_run.py --year [20 or 21] --model [llama3.2 or mistral]
+python src/graded_run.py --year [20 or 21] --model [llama3.2 or mistral]
+```
+Note: If you choose to run GPT-4o, you must modify the script to add your OpenAI or Azure OpenAI key and correctly format the model output.
