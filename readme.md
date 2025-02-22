@@ -1,6 +1,8 @@
 # Prompt Sensitivity in LLM-Based Relevance Judgments
 This repository contains data and scripts for analyzing prompt sensitivity in LLM-based relevance judgments.
+It collects 72 prompts from both human experts and LLMs, applying them to three different relevance judgement methods (binary, graded, and pairwise) using GPT-4o, Mistral, and LLaMA as judges. The study compares LLM judgments with TREC Deep Learning 2020 & 2021 labels, analyzing prompt robustness across models and LLMs as prompt generators. 
 
+[Prompt collection Guideline](https://drive.google.com/file/d/1mBn58tj2EZn3NvnW1s1Gn3gUjRotNvDq/view)
 ## Repository Structure
 ```
 prompt-sensitivity-relevance-judgements/
@@ -27,4 +29,37 @@ prompt-sensitivity-relevance-judgements/
     └── llama/
            ├── binary/                  # Binary relevance judgments by LLaMA
            ├── graded/                  # Graded relevance judgments by LLaMA
-           └── pairwise/                # Pairwise relevance judgments by LLaMA```
+           └── pairwise/                # Pairwise relevance judgments by LLaMA
+```
+
+
+## Judgment File Naming Convention
+
+Each relevance judgment file is named following this pattern: ```[model_name]_[judgment_type]dl[year][participant_id].txt```
+
+
+Where:
+- `[model_name]` → The LLM used for judgments (`gpt-4o`, `mistral`, `llama`).
+- `[judgment_type]` → The type of relevance judgment:
+  - `binary` → Binary (0/1) judgments.
+  - `graded` → Graded relevance (0-3 scale).
+  - `pairwise` → Pairwise comparison between two passages.
+- `dl[year]` → The dataset year (`dl20` for 2020, `dl21` for 2021).
+- `[participant_id]` → The ID of the prompt used for the judgment.
+
+** Example Filenames:**
+- `mistral_graded_dl20_1.txt` → Graded relevance judgments by Mistral on DL 2020, using prompt #1.
+- `gpt-4o_binary_dl21_5.txt` → Binary judgments by GPT-4o on DL 2021, using prompt #5.
+
+## Prompt Processing Details
+
+- Total Prompts: Initially, there were 32 prompts in `prompts.json`.  2 were test prompts and excluded. 30 prompts were used in the experiments.
+- Final Processed Prompts: After filtering, only 12 prompts from humans and 12 prompts from LLMs were considered valid for generating judgments.
+- Some judgment files may contain fewer lines than others. This happens because some LLMs failed to judge certain passages or returned incomplete results.
+
+## How to Use This Repository
+
+1. Explore `data/` → Contains queries, human labels, and LLM judgments.
+2. Check `prompts.json` → Defines the prompts used for relevance assessment.
+3. Analyze judgments in `data/judgments/` → Compare different LLM outputs.
+
