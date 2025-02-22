@@ -27,7 +27,9 @@ prompt-sensitivity-relevance-judgements/
     └── llama/
            ├── binary/                  # Binary relevance judgments by LLaMA
            ├── graded/                  # Graded relevance judgments by LLaMA
-           └── pairwise/                # Pairwise relevance judgments by LLaMA```
+           └── pairwise/                # Pairwise relevance judgments by LLaMA
+```
+
 
 ## Judgment File Naming Convention
 
