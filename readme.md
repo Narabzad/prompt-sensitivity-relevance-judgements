@@ -2,8 +2,8 @@
 This repository contains data and scripts for analyzing prompt sensitivity in LLM-based relevance judgments.
 
 ## Repository Structure
-```hello```
-'''prompt-sensitivity-relevance-judgements/
+```
+prompt-sensitivity-relevance-judgements/
 ├── prompts.json             # The prompts used for LLM-based relevance judgment
 ├── data/
 │   ├── topics/
@@ -27,4 +27,4 @@ This repository contains data and scripts for analyzing prompt sensitivity in LL
 │       └── llama/
 │           ├── binary/                  # Binary relevance judgments by LLaMA
 │           ├── graded/                  # Graded relevance judgments by LLaMA
-│           └── pairwise/                # Pairwise relevance judgments by LLaMA'''
+│           └── pairwise/                # Pairwise relevance judgments by LLaMA```
